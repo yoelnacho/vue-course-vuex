@@ -29,14 +29,13 @@ export default {
       }
     },
     addTodo() {
-      //console.log(this.$store.getters.todosLength + 1);
       const newTodo = {
         id: this.$store.getters.todosLength + 1,
         text: this.todo.value,
         done: false
       };
-      this.$store.commit('ADD_TODO', newTodo);
-      //console.log(this.todo.value);
+      //this.$store.commit('ADD_TODO', newTodo);
+      this.$store.dispatch('addTodo', newTodo);
 
       this.todo = '';
     }

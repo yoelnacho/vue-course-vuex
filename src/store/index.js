@@ -22,8 +22,14 @@ export default new Vuex.Store({
       state.todos.push(value);
     }
   },
-  // las acciones (son asíncronas)
-  actions: {},
+  // las acciones realizan un 'wrap' en la lógina de negocio (son asíncronas)
+  actions: {
+    addTodo({ state, commit }, value) {
+      if (state.todos) {
+        commit('ADD_TODO', value);
+      }
+    }
+  },
   // obtienen datos del state (son como las computed)
   getters: {
     catLength: state => {
