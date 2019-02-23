@@ -10,11 +10,13 @@
     </p>
     <p>Done: {{ $store.getters.doneTodos.length }}</p>
     <p>Pending: {{ $store.getters.activeTodos }}</p>
+    <hr />
+    <p>{{ getTodoById(2) }}</p>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   // Como elementos sueltos
@@ -25,6 +27,12 @@ export default {
   })*/
 
   // devuelve desde un array
-  computed: mapState(['user', 'categories', 'todos'])
+  computed: {
+    /*getTodo() {
+      return this.$store.getters.getTodoById;
+    },*/
+    ...mapGetters(['getTodoById']),
+    ...mapState(['user', 'categories', 'todos'])
+  }
 };
 </script>

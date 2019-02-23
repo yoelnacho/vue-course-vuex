@@ -29,6 +29,9 @@ export default new Vuex.Store({
     activeTodos: (state, getters) => {
       // resta los todos completos al total de todos.
       return state.todos.length - getters.doneTodos.length;
+    },
+    getTodoById: state => id => {
+      return state.todos.find(todo => todo.id === id);
     }
   }
 });
