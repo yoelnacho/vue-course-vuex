@@ -16,11 +16,21 @@ export default new Vuex.Store({
       { id: 2, text: 'lalalal 3', done: true }
     ]
   },
-  mutations: {},
+  // Las mutaciones realizan cambios en el state (son sincronas)
+  mutations: {
+    ADD_TODO(state, value) {
+      state.todos.push(value);
+    }
+  },
+  // las acciones (son asíncronas)
   actions: {},
+  // obtienen datos del state (son como las computed)
   getters: {
     catLength: state => {
       return state.categories.length;
+    },
+    todosLength: state => {
+      return state.todos.length;
     },
     doneTodos: state => {
       return state.todos.filter(todo => todo.done);
